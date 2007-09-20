@@ -1,0 +1,193 @@
+/*
+   Copyright (C) 2007 Nicolas CORTOT
+
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the GNU General Public License
+   as published by the Free Software Foundation; either version 2
+   of the License, or (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the
+   Free Software Foundation, Inc.,
+   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+
+/* Default styles */
+
+body {
+    background: #eeeeec;
+    color: #555753;
+    font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+}
+
+a:link, a:visited {
+    color: #204a87;
+    background: inherit;
+    text-decoration: none;
+}
+
+a:active, a:hover {
+    color: #73d216;
+    background: inherit;
+    text-decoration: none;
+}
+
+hr {
+    margin: 1em;
+    border: thin solid #369;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+p {
+    padding: 0em 1em;
+    margin: 0.5em;
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.smaller {
+    font-size: smaller;
+    font-style: italic;
+    color: #888a85;
+    background: inherit;
+}
+
+.spacer {
+    clear: both;
+}
+
+
+
+/* Header */
+
+div#header {
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background: #eeeeec;
+    text-align: center;
+}
+
+#header hr {
+    margin: 0 .5em;
+}
+
+#header a {
+    width: 25%;
+    height: 32px;
+    display: block;
+    margin: .5em;
+    padding: 4px;
+    border: thin solid #eeeeec;
+}
+
+#header a:active, #header a:hover {
+    color: inherit;
+    background: #8ae234;
+    border: thin solid #73d216;
+}
+
+#header a img {
+    float: left;
+    margin: 0;
+}
+
+#header a.view_prev {
+    float: left;
+}
+
+#header a.view_up {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header a.view_next {
+    float: right;
+}
+
+#header a.view_next img {
+    float: right;
+}
+
+
+
+/* Footer */
+
+div#footer {
+    clear: both;
+    margin: .5em;
+    text-align: right;
+}
+
+#footer p {
+    float: left;
+    margin: .3em 0;
+}
+
+#footer hr {
+    margin: 0;
+}
+
+#footer a {
+    opacity: .5;
+}
+
+#footer a img {
+    margin: .3em 0;
+    opacity: .5;
+}
+
+#footer a:hover img {
+    opacity: 1;
+}
+
+
+
+/* List and medium view */
+
+div#view {
+    margin: 0;
+    padding: 5em 0;
+    text-align: center;
+}
+
+#view div.item{
+    float: left;
+    width: 160px;
+    height: 190px;
+    margin: .5em;
+    padding: .5em;
+    text-align: center;
+}
+
+#view a:link img, #view a:visited img {
+    border: thin solid #eeeeec;
+}
+
+#view a:active img, #view a:hover img {
+    border: thin solid #73d216;
+}
+
+
+/* vim: set et ts=4 sts=4 sw=4: */

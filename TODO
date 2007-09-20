@@ -1,0 +1,14 @@
+
+
+TODO
+====
+
+use cleaned paths in urls
+
+add copyright informations for both source and images
+
+
+BUGS
+====
+
+404 when a path contains '&'

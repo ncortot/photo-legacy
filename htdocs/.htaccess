@@ -1,0 +1,11 @@
+Options -Indexes +FollowSymLinks
+RewriteEngine on
+
+RewriteBase /
+
+# Rewrite URLs of the form 'index.php?q=x':
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ ?n=${EscapeMap:$1|error} [L,NE,QSA]
+RewriteRule ^(.*)$ ?n=$1 [L,QSA]
+
