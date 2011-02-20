@@ -18,7 +18,9 @@
     59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 
-require_once 'smarty/Smarty.class.php';
+if (!@include_once 'smarty/libs/Smarty.class.php') {
+    require_once 'smarty/Smarty.class.php';
+}
 
 class Page extends Smarty
 {
@@ -102,7 +104,7 @@ function _hide_email($source)
            '//]]></script>'; 
 }
 
-function hide_emails($source, &$smarty)
+function hide_emails($source, $smarty)
 {
     //prevent email replacement in <script> and <textarea>
     $tags = '(script|textarea|select)';

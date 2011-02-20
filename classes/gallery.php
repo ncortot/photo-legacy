@@ -43,13 +43,13 @@ class Gallery
     }
 
 
-    protected function call_handler($handler, &$page, $mod_path) {
+    protected function call_handler($handler, $page, $mod_path) {
         if (!empty($this->handlers[$handler])
-         && call_user_func($this->handlers[$handler], &$page, $mod_path))
+         && call_user_func($this->handlers[$handler], $page, $mod_path))
             return true;
 
         if ($handler !== '404')
-            return $this->call_handler('404', &$page, $mod_path);
+            return $this->call_handler('404', $page, $mod_path);
         else
             return false;
     }
@@ -76,7 +76,7 @@ class Gallery
         if (empty($h))
             $h = 'list';
 
-        $this->call_handler($h, &$page, $p);
+        $this->call_handler($h, $page, $p);
 
         $page->run();
     }

@@ -29,7 +29,7 @@ class GlViewModule extends GlModule
         );
     }
 
-    protected function make_head(&$page, $path)
+    protected function make_head($page, $path)
     {
         $name = basename($path);
         $root = new ItemDirectory(dirname($path));
@@ -57,7 +57,7 @@ class GlViewModule extends GlModule
         return array($root, $list, $i);
     }
 
-    public function handler_list(&$page, $path)
+    public function handler_list($page, $path)
     {
         global $globals;
 
@@ -67,7 +67,7 @@ class GlViewModule extends GlModule
         if ( $list === false )
             return false;
 
-        if (!$this->make_head(&$page, $path))
+        if (!$this->make_head($page, $path))
             return false;
 
         $page->assign('list_items', $list);
@@ -77,7 +77,7 @@ class GlViewModule extends GlModule
         return true;
     }
 
-    public function handler_view(&$page, $path)
+    public function handler_view($page, $path)
     {
         global $globals;
 
@@ -86,7 +86,7 @@ class GlViewModule extends GlModule
         if (!is_file($file))
             return false;
 
-        if (!$this->make_head(&$page, $path))
+        if (!$this->make_head($page, $path))
             return false;
         
         $page->changeTpl('view/view.tpl');

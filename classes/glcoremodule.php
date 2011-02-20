@@ -29,13 +29,13 @@ class GlCoreModule extends GlModule
         );
     }
 
-    function handler_404(&$page, $path)
+    function handler_404($page, $path)
     {
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
         $page->changeTpl('core/404.tpl');
     }
 
-    function handler_favicon(&$page)
+    function handler_favicon($page)
     {
         global $globals;
         $data = file_get_contents($globals->root.'/htdocs/images/favicon.ico');
@@ -44,7 +44,7 @@ class GlCoreModule extends GlModule
         exit;
     }
 
-    function handler_robots(&$page)
+    function handler_robots($page)
     {
         header('Content-Type: text/plain');
         echo "User-Agent: *\n";

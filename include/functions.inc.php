@@ -30,7 +30,7 @@ $TIME_BEGIN = microtime_float();
 // apply url_encode, but keep /'s
 function path_encode($path, $hack = true)
 {
-    $tokens = split('/', $path);
+    $tokens = preg_split('#/#', $path);
 
     foreach ($tokens as $t)
         $p .= '/'.rawurlencode($t);
@@ -51,7 +51,7 @@ function path_encode($path, $hack = true)
 // url_decode, strip leading and trailing /'s, and /..?/'s
 function path_decode($path)
 {
-    $tokens = split('/', $path);
+    $tokens = preg_split('#/#', $path);
     $p = '/';
 
     foreach ($tokens as $t)
