@@ -46,7 +46,7 @@ class ItemDirectory extends Item
         try
         {
             foreach (new DirectoryIterator($this->local_path) as $file) {
-                if ($file->isDot())
+                if (substr($file->getFilename(), 0, 1) === '.')
                     continue;
 
                 $new = ltrim($this->path.'/'.$file->getFilename(), '/');
