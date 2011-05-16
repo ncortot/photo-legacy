@@ -42,5 +42,8 @@ define('SKINNED', 0);
 define('NO_SKIN', 1);
 
 
+// Used by Smarty
+$_SESSION = array();
+
 // vim:set et sw=4 sts=4 sws=4 foldmethod=marker enc=utf-8:
 ?>

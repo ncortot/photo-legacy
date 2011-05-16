@@ -42,7 +42,7 @@ function path_encode($path, $hack = true)
     }
 
     $count = 0;
-    do $p = str_replace('//', '/', $p, &$count);
+    do $p = str_replace('//', '/', $p, $count);
     while ($count != 0);
 
     return trim($p, '/');
@@ -60,7 +60,7 @@ function path_decode($path)
     $p = str_replace('/./', '/', $p);
     $p = str_replace('/../', '/', $p);
     $count = 0;
-    do $p = str_replace('//', '/', $p, &$count);
+    do $p = str_replace('//', '/', $p, $count);
     while ($count != 0);
 
     $p = trim($p, '/');
@@ -76,7 +76,7 @@ function format_long($name)
     $hms = "(\d{2})-(\d{2})-(\d{2})(\w)?";
     $pattern = "/^$y(-$md)?(\.$y?-?($md)?)?( $hms)?( (\w+))?( - (.*))?$/";
 
-    if (!preg_match($pattern, $name, &$m))
+    if (!preg_match($pattern, $name, $m))
         return htmlspecialchars($name);
 
     $d = '';
@@ -126,7 +126,7 @@ function format_short($name)
     // Extract comment from name "... - Text"
     $pattern = "/^[\d\s-.]+ - (.*)$/";
 
-    if (preg_match($pattern, $name, &$m))
+    if (preg_match($pattern, $name, $m))
         return htmlspecialchars($m[1]);
     else
         return htmlspecialchars($name);
