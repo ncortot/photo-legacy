@@ -34,8 +34,12 @@ class Globals
     {
         $this->session   = $sess;
 
-        $base = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
-        $this->baseurl   = trim($base.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']), '/');
+        if (isset($_SERVER['SERVER_NAME'])) {
+            $base = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
+            $this->baseurl = trim($base.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']), '/');
+        } else {
+            $this->baseurl = trim(dirname($_SERVER['PHP_SELF']), '/');
+        }
         $this->root = dirname(dirname(__FILE__));
 
         # read configuration
