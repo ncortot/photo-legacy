@@ -49,20 +49,27 @@ class Data
 
     public function read($file)
     {
-        if (!($h = fopen($file, 'r')))
+        echo "  opening data file\n";
+        if (!($h = @fopen($file, 'r'))) {
+            echo "  data file not found\n";
             return false;
+        }
 
+        echo "  reading data file\n";
         $p = substr(rtrim(fgets($h), "\n"), 6);
         fscanf($h, "size: %u\n", &$s);
         fscanf($h, "modified: %u\n", &$t);
 
-        if (!fclose($h) || empty($p) || !$s || !$t)
+        if (!fclose($h) || empty($p) || !$s || !$t) {
+            echo "  something went wrong\n";
             return false;
+        }
 
         $this->path = $p;
         $this->size = $s;
         $this->time = $t;
 
+        echo "  data ok\n";
         return true;
     }
 
