@@ -22,7 +22,7 @@
 // autoloading classes
 function __autoload($class)
 {
-    @include dirname(dirname(__FILE__)).'/classes/'.strtolower($class).'.php';
+    include dirname(dirname(__FILE__)).'/classes/'.strtolower($class).'.php';
 }
 
 
