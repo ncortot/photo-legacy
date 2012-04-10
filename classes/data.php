@@ -38,7 +38,7 @@ class Data
 
         $file = rtrim($globals->path->large.'/'.$path, '/');
 
-        if (empty($path) || !($stat = @stat($file)))
+        if (empty($path) || !($stat = stat($file)))
             return false;
 
         $this->path = $path;
@@ -49,14 +49,14 @@ class Data
 
     public function read($file)
     {
-        if (!($h = @fopen($file, 'r')))
+        if (!($h = fopen($file, 'r')))
             return false;
 
-        $p = substr(rtrim(@fgets($h), "\n"), 6);
-        @fscanf($h, "size: %u\n", &$s);
-        @fscanf($h, "modified: %u\n", &$t);
+        $p = substr(rtrim(fgets($h), "\n"), 6);
+        fscanf($h, "size: %u\n", &$s);
+        fscanf($h, "modified: %u\n", &$t);
 
-        if (!@fclose($h) || empty($p) || !$s || !$t)
+        if (!fclose($h) || empty($p) || !$s || !$t)
             return false;
 
         $this->path = $p;
@@ -71,10 +71,10 @@ class Data
         if (empty($this->path) || $this->size == 0 || $this->time == 0)
             return false;
 
-        return ($h = @fopen($file, 'w'))
-            && @fwrite($h, sprintf("file: %s\nsize: %u\nmodified: %u\n",
+        return ($h = fopen($file, 'w'))
+            && fwrite($h, sprintf("file: %s\nsize: %u\nmodified: %u\n",
                                   $this->path, $this->size, $this->time))
-            && @fclose($h);
+            && fclose($h);
     }
 
     public function equals(Data $d)
