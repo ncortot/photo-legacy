@@ -63,8 +63,8 @@ class Data
 
         echo "  reading data file\n";
         $p = substr(rtrim(fgets($h), "\n"), 6);
-        fscanf($h, "size: %u\n", &$s);
-        fscanf($h, "modified: %u\n", &$t);
+        fscanf($h, "size: %u\n", $s);
+        fscanf($h, "modified: %u\n", $t);
 
         if (!fclose($h) || empty($p) || !$s || !$t) {
             echo "  something went wrong\n";
