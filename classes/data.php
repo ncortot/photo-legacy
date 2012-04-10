@@ -38,8 +38,12 @@ class Data
 
         $file = rtrim($globals->path->large.'/'.$path, '/');
 
-        if (empty($path) || !($stat = stat($file)))
+        echo "  trying stat($file)\n";
+        if (empty($path) || !($stat = stat($file))) {
+            echo "  BLAH\n";
             return false;
+        }
+        echo "  OK\n";
 
         $this->path = $path;
         $this->size = $stat['size'];
