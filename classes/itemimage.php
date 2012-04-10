@@ -108,6 +108,8 @@ class ItemImage extends Item
         if ($flags & ITEM_DIRECTORY)
             return 1;
 
+        echo "- ".$this->local_path."\n";
+
         // get saved and current metadata
         $data = new Data($this->path);
         $fdat = new Data();
@@ -121,7 +123,7 @@ class ItemImage extends Item
             return 1;
 
         // update needed
-        echo "  ".$this->local_path."\n";
+        echo "x ".$this->local_path."\n";
 
         $bs = $bm = true;
 
