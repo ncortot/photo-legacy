@@ -109,6 +109,8 @@ class ItemImage extends Item
             return 1;
 
         echo "1 ".$this->local_path."\n";
+        echo "  ".$this->path."\n";
+        echo "  ".$this->data_path."\n";
 
         // get saved and current metadata
         $data = new Data($this->path);
