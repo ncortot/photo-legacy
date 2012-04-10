@@ -19,6 +19,8 @@
 */
 
 
+error_reporting(E_STRICT | E_ALL);
+
 require_once dirname(__FILE__).'/../include/gallery.inc.php';
 
 $gallery = new Gallery('core', 'view');
