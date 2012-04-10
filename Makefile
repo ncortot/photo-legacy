@@ -4,7 +4,7 @@ htdocs/.htaccess:
 	cp htdocs/.htaccess.in htdocs/.htaccess
 
 config/gallery.conf:
-	cp config/gallery.ini config/gallery.conf
+	cp config/gallery.conf.in config/gallery.conf
 
 htdocs/small:
 	ln -s ../spool/images_small htdocs/small
