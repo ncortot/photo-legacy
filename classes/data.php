@@ -27,6 +27,8 @@ class Data
 
     public function __construct($path = NULL)
     {
+        echo "  Data::__construct($path)\n";
+
         if (!empty($path))
             $this->stat($path);
     }
