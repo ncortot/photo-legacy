@@ -35,8 +35,6 @@ class ItemDirectory extends Item
         return true;
     }
 
-
-
     public function getList()
     {
         global $globals;
@@ -78,8 +76,6 @@ class ItemDirectory extends Item
         else
             return strcmp($x, $y);
     }
-
-
 
     protected function make_image($list, $count)
     {
@@ -196,7 +192,7 @@ class ItemDirectory extends Item
             $r = $item->make_thumbs($flags);
 
             if ($r === false)
-                $br = false;            
+                $br = false;
             else
                 $count += $r;
 
@@ -206,7 +202,7 @@ class ItemDirectory extends Item
 
         // create own image
         $thumb = $this->make_image($list, $count);
-        
+
         // write image file
         $bt = $this->write_image($thumb, $this->small_path, IMAGETYPE_PNG);
         imagedestroy($thumb);

@@ -22,8 +22,6 @@ class ItemImage extends Item
 {
     protected $medium_path;
 
-
-
     public function __construct($path)
     {
         global $globals;
@@ -42,7 +40,6 @@ class ItemImage extends Item
     {
         return true;
     }
-
 
 
     public function getLink()
@@ -67,8 +64,6 @@ class ItemImage extends Item
         global $globals;
         return path_encode($globals->url->large.'/'.$this->path, false);
     }
-
-
 
     protected function read_large()
     {
@@ -113,7 +108,7 @@ class ItemImage extends Item
         if ($flags & ITEM_DIRECTORY)
             return 1;
 
-        // get saved and current metadata        
+        // get saved and current metadata
         $data = new Data($this->path);
         $fdat = new Data();
         $fdat->read($this->data_path);
@@ -176,7 +171,6 @@ class ItemImage extends Item
         // one image counts for one file
         return 1;
     }
-
 }
 
 // vim:set et sw=4 sts=4 sws=4 foldmethod=marker enc=utf-8:
