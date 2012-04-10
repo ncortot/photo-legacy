@@ -1,0 +1,10 @@
+config/gallery.conf
+htdocs/.htaccess
+htdocs/large/*
+!htdocs/large/.keep
+spool/images_data/*
+!spool/images_data/.keep
+spool/images_small/*
+!spool/images_small/.keep
+spool/images_medium/*
+!spool/images_medium/.keep
