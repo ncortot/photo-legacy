@@ -108,22 +108,27 @@ class ItemImage extends Item
         if ($flags & ITEM_DIRECTORY)
             return 1;
 
-        echo "- ".$this->local_path."\n";
+        echo "1 ".$this->local_path."\n";
 
         // get saved and current metadata
         $data = new Data($this->path);
         $fdat = new Data();
         $fdat->read($this->data_path);
 
+        echo "2 ".$this->local_path."\n";
+
         // do we need to update the thumbnails ?
         if ( $data->equals($fdat)
           && (is_file($this->small_path) || !($flags & ITEM_SMALL))
           && (is_file($this->medium_path) || !($flags & ITEM_MEDIUM))
           && !($flags & ITEM_FORCEUPDATE) )
+        {
+            echo "up to date ".$this->local_path."\n";
             return 1;
+        }
 
         // update needed
-        echo "x ".$this->local_path."\n";
+        echo "update needed ".$this->local_path."\n";
 
         $bs = $bm = true;
 
